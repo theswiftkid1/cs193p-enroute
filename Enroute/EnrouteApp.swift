@@ -10,9 +10,12 @@ import SwiftUI
 
 @main
 struct EnrouteApp: App {
+    let context = EnrouteDataStore.shared.persistentContainer.viewContext
+
     var body: some Scene {
         WindowGroup {
             FlightsEnrouteView(flightSearch: FlightSearch(destination: "KSFO"))
+                .environment(\.managedObjectContext, context)
         }
     }
 }
