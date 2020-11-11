@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		457FA238255C43D50036900B /* EnrouteDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 457FA236255C43D50036900B /* EnrouteDataModel.xcdatamodeld */; };
 		457FA23B255C442B0036900B /* EnrouteDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457FA23A255C442B0036900B /* EnrouteDataStore.swift */; };
+		457FA23F255C4ADA0036900B /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457FA23E255C4ADA0036900B /* Airport.swift */; };
+		457FA242255C53120036900B /* Airline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457FA241255C53120036900B /* Airline.swift */; };
+		457FA245255C539E0036900B /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457FA244255C539E0036900B /* Flight.swift */; };
 		45D49254255AF7C000B66343 /* EnrouteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D49253255AF7C000B66343 /* EnrouteApp.swift */; };
 		DA47A9B32469D48100C8E13C /* Airlines.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA47A9B12469D48100C8E13C /* Airlines.swift */; };
 		DA47A9B42469D48100C8E13C /* Airports.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA47A9B22469D48100C8E13C /* Airports.swift */; };
@@ -30,6 +33,9 @@
 /* Begin PBXFileReference section */
 		457FA237255C43D50036900B /* EnrouteDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EnrouteDataModel.xcdatamodel; sourceTree = "<group>"; };
 		457FA23A255C442B0036900B /* EnrouteDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrouteDataStore.swift; sourceTree = "<group>"; };
+		457FA23E255C4ADA0036900B /* Airport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Airport.swift; sourceTree = "<group>"; };
+		457FA241255C53120036900B /* Airline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Airline.swift; sourceTree = "<group>"; };
+		457FA244255C539E0036900B /* Flight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
 		45D49253255AF7C000B66343 /* EnrouteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrouteApp.swift; sourceTree = "<group>"; };
 		DA47A9B12469D48100C8E13C /* Airlines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airlines.swift; sourceTree = "<group>"; };
 		DA47A9B22469D48100C8E13C /* Airports.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airports.swift; sourceTree = "<group>"; };
@@ -91,6 +97,9 @@
 			isa = PBXGroup;
 			children = (
 				DAB658BC246794A700A0F2BB /* FoundationExtensions.swift */,
+				457FA23E255C4ADA0036900B /* Airport.swift */,
+				457FA241255C53120036900B /* Airline.swift */,
+				457FA244255C539E0036900B /* Flight.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -227,10 +236,13 @@
 				DAB658C4246794A800A0F2BB /* FlightAware+AirlineInfo.swift in Sources */,
 				45D49254255AF7C000B66343 /* EnrouteApp.swift in Sources */,
 				457FA238255C43D50036900B /* EnrouteDataModel.xcdatamodeld in Sources */,
+				457FA242255C53120036900B /* Airline.swift in Sources */,
 				DAB658C2246794A800A0F2BB /* FoundationExtensions.swift in Sources */,
 				DAB658C3246794A800A0F2BB /* FlightAware+AirportInfo.swift in Sources */,
 				DAB658C5246794A800A0F2BB /* FlightAware+Enroute.swift in Sources */,
+				457FA245255C539E0036900B /* Flight.swift in Sources */,
 				DA47A9B62469D48900C8E13C /* FlightFetcher.swift in Sources */,
+				457FA23F255C4ADA0036900B /* Airport.swift in Sources */,
 				DAB658AB2467944B00A0F2BB /* FlightsEnrouteView.swift in Sources */,
 				DAB658BB2467949600A0F2BB /* FAFlight.swift in Sources */,
 				DA47A9B32469D48100C8E13C /* Airlines.swift in Sources */,

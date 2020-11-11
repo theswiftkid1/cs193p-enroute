@@ -11,10 +11,15 @@ import SwiftUI
 @main
 struct EnrouteApp: App {
     let context = EnrouteDataStore.shared.persistentContainer.viewContext
+    let airport: Airport
+
+    init() {
+        airport = Airport.withICAO("KSFO", context: context)
+    }
 
     var body: some Scene {
         WindowGroup {
-            FlightsEnrouteView(flightSearch: FlightSearch(destination: "KSFO"))
+            FlightsEnrouteView(flightSearch: FlightSearch(destination: airport))
                 .environment(\.managedObjectContext, context)
         }
     }

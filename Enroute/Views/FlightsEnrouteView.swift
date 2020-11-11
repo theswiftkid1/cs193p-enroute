@@ -10,9 +10,9 @@ import SwiftUI
 import CoreData
 
 struct FlightSearch {
-    var destination: String
-    var origin: String?
-    var airline: String?
+    var destination: Airport
+    var origin: Airport?
+    var airline: Airline?
     var inTheAir: Bool = true
 }
 
