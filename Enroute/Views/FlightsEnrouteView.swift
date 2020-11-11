@@ -8,7 +8,7 @@
 
 import SwiftUI
 import CoreData
-
+ 
 struct FlightSearch {
     var destination: Airport
     var origin: Airport?
@@ -16,9 +16,27 @@ struct FlightSearch {
     var inTheAir: Bool = true
 }
 
+extension FlightSearch {
+    var predicate: NSPredicate {
+        var format = "destination_ = %@"
+        var args: [NSManagedObject] = [destination] // args could be [Any] if needed
+        if origin != nil {
+            format += " and origin_ = %@"
+            args.append(origin!)
+        }
+        if airline != nil {
+            format += " and airline_ = %@"
+            args.append(airline!)
+        }
+        if inTheAir { format += " and departure != nil" }
+        return NSPredicate(format: format, argumentArray: args)
+    }
+}
+
 struct FlightsEnrouteView: View {
     @State var flightSearch: FlightSearch
-    
+    @Environment(\.managedObjectContext) var context
+
     var body: some View {
         NavigationView {
             FlightList(flightSearch)
@@ -34,6 +52,7 @@ struct FlightsEnrouteView: View {
         }
         .sheet(isPresented: $showFilter) {
             FilterFlights(flightSearch: self.$flightSearch, isPresented: self.$showFilter)
+                .environment(\.managedObjectContext, context)
         }
     }
     
@@ -51,7 +70,7 @@ struct FlightList: View {
     @FetchRequest var flights: FetchedResults<Flight>
 
     init(_ flightSearch: FlightSearch) {
-        let request = Flight.fetchRequest(NSPredicate(format: "destination_ = %@", flightSearch.destination))
+        let request = Flight.fetchRequest(flightSearch.predicate)
         _flights = FetchRequest(fetchRequest: request)
     }
 
