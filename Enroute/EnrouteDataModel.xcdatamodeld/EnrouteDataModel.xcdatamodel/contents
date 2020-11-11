@@ -27,8 +27,8 @@
         <relationship name="origin_" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Airport" inverseName="flightsFrom_" inverseEntity="Airport"/>
     </entity>
     <elements>
-        <element name="Airport" positionX="-148.8671875" positionY="-115.28515625" width="128" height="163"/>
         <element name="Airline" positionX="364.640625" positionY="-85.38671875" width="128" height="103"/>
-        <element name="Flight" positionX="68.5234375" positionY="38.15234375" width="128" height="163"/>
+        <element name="Airport" positionX="-148.8671875" positionY="-115.28515625" width="128" height="163"/>
+        <element name="Flight" positionX="68.5234375" positionY="35.15234375" width="128" height="163"/>
     </elements>
 </model>

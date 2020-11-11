@@ -15,6 +15,7 @@ struct EnrouteApp: App {
 
     init() {
         airport = Airport.withICAO("KSFO", context: context)
+        airport.fetchIncomingFlights()
     }
 
     var body: some Scene {

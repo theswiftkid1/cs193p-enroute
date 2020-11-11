@@ -9,11 +9,9 @@
 import CoreData
 import Combine
 
-extension Airport {
+extension Airport: Comparable {
     static func withICAO(_ icao: String, context: NSManagedObjectContext) -> Airport {
-        let request = NSFetchRequest<Airport>(entityName: "Airport")
-        request.predicate = NSPredicate(format: "icao_ = %@", icao)
-        request.sortDescriptors = [NSSortDescriptor(key: "location", ascending: true)]
+        let request = self.fetchRequest(NSPredicate(format: "icao_ = %@", icao))
         let airports = (try? context.fetch(request)) ?? []
         if let airport = airports.first {
             return airport
@@ -42,6 +40,27 @@ extension Airport {
         }
     }
 
+    func fetchIncomingFlights() {
+        Self.flightAwareRequest?.stopFetching()
+        if let context = managedObjectContext {
+            Self.flightAwareRequest = EnrouteRequest.create(airport: icao, howMany: 90)
+            Self.flightAwareRequest?.fetch(andRepeatEvery: 60)
+            Self.flightAwareResultsCancellable = Self.flightAwareRequest?.results.sink { results in
+                for faflight in results {
+                    Flight.update(from: faflight, in: context)
+                }
+                do {
+                    try context.save()
+                } catch(let error) {
+                    print("couldn't save flight update to CoreData: \(error.localizedDescription)")
+                }
+            }
+        }
+    }
+
+    private static var flightAwareRequest: EnrouteRequest!
+    private static var flightAwareResultsCancellable: AnyCancellable?
+
     var flightsTo: Set<Flight> {
         get {
             (flightsTo_ as? Set<Flight>) ?? []
@@ -59,9 +78,14 @@ extension Airport {
             flightsFrom_ = newValue as NSSet
         }
     }
-}
 
-extension Airport: Identifiable, Comparable {
+    static func fetchRequest(_ predicate: NSPredicate) -> NSFetchRequest<Airport> {
+        let request = NSFetchRequest<Airport>(entityName: "Airport")
+        request.predicate = predicate
+        request.sortDescriptors = [NSSortDescriptor(key: "location", ascending: true)]
+        return request
+    }
+
     var icao: String {
         get { icao_! } // TODO: protect with error in case of nil
         set { icao_ = newValue }
@@ -71,8 +95,6 @@ extension Airport: Identifiable, Comparable {
         let friendly = AirportInfo.friendlyName(name: self.name ?? "", location: self.location ?? "")
         return friendly.isEmpty ? icao : friendly
     }
-
-    public var id: String { icao }
 
     public static func < (lhs: Airport, rhs: Airport) -> Bool {
         rhs.location ?? lhs.friendlyName < rhs.location ?? rhs.friendlyName
