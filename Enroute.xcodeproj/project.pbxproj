@@ -12,6 +12,7 @@
 		457FA23F255C4ADA0036900B /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457FA23E255C4ADA0036900B /* Airport.swift */; };
 		457FA242255C53120036900B /* Airline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457FA241255C53120036900B /* Airline.swift */; };
 		457FA245255C539E0036900B /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457FA244255C539E0036900B /* Flight.swift */; };
+		45AF1689255DB51F008B93FC /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AF1688255DB51F008B93FC /* MapView.swift */; };
 		45D49254255AF7C000B66343 /* EnrouteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D49253255AF7C000B66343 /* EnrouteApp.swift */; };
 		DA47A9B32469D48100C8E13C /* Airlines.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA47A9B12469D48100C8E13C /* Airlines.swift */; };
 		DA47A9B42469D48100C8E13C /* Airports.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA47A9B22469D48100C8E13C /* Airports.swift */; };
@@ -35,6 +36,7 @@
 		457FA23E255C4ADA0036900B /* Airport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Airport.swift; sourceTree = "<group>"; };
 		457FA241255C53120036900B /* Airline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Airline.swift; sourceTree = "<group>"; };
 		457FA244255C539E0036900B /* Flight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
+		45AF1688255DB51F008B93FC /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		45D49253255AF7C000B66343 /* EnrouteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrouteApp.swift; sourceTree = "<group>"; };
 		DA47A9B12469D48100C8E13C /* Airlines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airlines.swift; sourceTree = "<group>"; };
 		DA47A9B22469D48100C8E13C /* Airports.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airports.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			children = (
 				EC48CF55246B289C00F59507 /* FilterFlights.swift */,
 				DAB658AA2467944B00A0F2BB /* FlightsEnrouteView.swift */,
+				45AF1688255DB51F008B93FC /* MapView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				457FA238255C43D50036900B /* EnrouteDataModel.xcdatamodeld in Sources */,
 				457FA242255C53120036900B /* Airline.swift in Sources */,
 				DAB658C2246794A800A0F2BB /* FoundationExtensions.swift in Sources */,
+				45AF1689255DB51F008B93FC /* MapView.swift in Sources */,
 				DAB658C3246794A800A0F2BB /* FlightAware+AirportInfo.swift in Sources */,
 				DAB658C5246794A800A0F2BB /* FlightAware+Enroute.swift in Sources */,
 				457FA245255C539E0036900B /* Flight.swift in Sources */,
